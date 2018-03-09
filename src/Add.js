@@ -18,11 +18,11 @@ module.exports = class Add {
     return true;
   }
 
-  reduce(){
+  reduce(environment){
     if(this.left.reducible()){
-      return new Add(this.left.reduce(), this.right);
+      return new Add(this.left.reduce(environment), this.right);
     }else if(this.right.reducible()){
-      return new Add(this.left, this.right.reduce());
+      return new Add(this.left, this.right.reduce(environment));
     }else{
       return new Numbers(this.left + this.right);
     }

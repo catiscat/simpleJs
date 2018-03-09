@@ -18,11 +18,11 @@ module.exports = class Mutiply {
     return true;
   }
 
-  reduce(){
+  reduce(environment){
     if(this.left.reducible()){
-      return new Mutiply(this.left.reduce(), this.right);
+      return new Mutiply(this.left.reduce(environment), this.right);
     }else if(this.right.reducible()){
-      return new Mutiply(this.left, this.right.reduce());
+      return new Mutiply(this.left, this.right.reduce(environment));
     }else{
       return new Numbers(this.left * this.right);
     }

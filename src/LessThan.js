@@ -18,11 +18,11 @@ module.exports = class LessThan {
     return true;
   }
 
-  reduce(){
+  reduce(environment){
     if(this.left.reducible()){
-      return new LessThan(this.left.reduce(), this.right);
+      return new LessThan(this.left.reduce(environment), this.right);
     }else if(this.right.reducible()){
-      return new LessThan(this.left, this.right.reduce());
+      return new LessThan(this.left, this.right.reduce(environment));
     }else{
       return new Boolean(this.left < this.right);
     }
