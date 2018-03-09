@@ -7,8 +7,12 @@ module.exports = class Numbers {
 		return this.number.valueOf();
 	}
 
-	inspect(){
+	inspect() {
 		console.log(this.toString());
-	}
-	
+  }
+  
+  reducible(){
+    return false;
+  }
+
 }

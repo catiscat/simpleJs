@@ -1,14 +1,30 @@
-module.exports =  class Mutiply{
-    constructor(left, right){
-        this.left = left;
-        this.right = right;
-    }
+const Numbers = require('./Numbers');
 
-    toString(){
-        return `${this.left} * ${this.right}`;
-    }
+module.exports = class Mutiply {
+  constructor(left, right) {
+    this.left = left;
+    this.right = right;
+  }
 
-    inspect(){
-		console.log(this.toString());
-	}
+  toString() {
+    return `${this.left} * ${this.right}`;
+  }
+
+  inspect() {
+    console.log(this.toString());
+  }
+
+  reducible(){
+    return true;
+  }
+
+  reduce(){
+    if(this.left.reducible()){
+      return new Mutiply(this.left.reduce(), this.right);
+    }else if(this.right.reducible()){
+      return new Mutiply(this.left, this.right.reduce());
+    }else{
+      return new Numbers(this.left * this.right);
+    }
+  }
 }
