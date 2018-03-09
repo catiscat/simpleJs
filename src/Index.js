@@ -1,6 +1,8 @@
 const Add = require('./Add');
 const Numbers = require('./Numbers');
 const Mutiply = require('./Mutiply');
+const Boolean = require('./Boolean');
+const LessThan = require('./LessThan');
 
 class Machine {
   constructor(expression) {
@@ -23,7 +25,8 @@ class Machine {
 
 function runner() {
   const expression1 = new Add(new Add(new Numbers(3), new Numbers(5) ), new Mutiply(new Numbers(3), new Numbers(5)));
-  const res1 = new Machine(expression1).run();
+  const expression2 = new LessThan(new Add(new Numbers(40), new Numbers(9) ), new Numbers(5));
+  const res = new Machine(expression2).run();
 }
 
 
