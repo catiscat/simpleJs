@@ -8,6 +8,7 @@ const DoNothing = require('./DoNothing');
 const Assign = require('./Assign');
 const If = require('./If');
 const Sequence = require('./Sequence');
+const While = require('./While');
 
 class Machine {
   constructor(statement, environment) {
@@ -53,9 +54,13 @@ function runner() {
     new Assign('x', new Add( new Numbers(1), new Numbers(3) )),
     new Assign('y', new Add(new Numbers(4), new Numbers(6)))
   );
+  const expression8 = new While(
+    new LessThan(new Variable('x'), new Numbers(5)),
+    new Assign('x', new Add(new Variable('x'), new Numbers(1)))
+  );
 
-  const environment = {x: new Numbers(3), y: new Numbers(8) };
-  const res = new Machine(expression7, {}).run();
+  const environment = {x: new Numbers(3)};
+  const res = new Machine(expression8, environment).run();
 }
 
 
