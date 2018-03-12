@@ -25,4 +25,9 @@ module.exports = class Assign{
       return {statement: new DoNothing(), environment};
     }
   }
+
+  evaluate(environment){
+    return {...environment, [this.name]: this.expression.evaluate(environment)};
+  }
+
 }

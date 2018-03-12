@@ -25,7 +25,10 @@ module.exports = class Sequence{
         statement: new Sequence(reducedResult.statement, this.second),
         environment: reducedResult.environment
       };
-
     }
+  }
+
+  evaluate(environment){
+    return this.second.evaluate(this.first.evaluate(environment));
   }
 }

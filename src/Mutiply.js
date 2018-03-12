@@ -27,4 +27,8 @@ module.exports = class Mutiply {
       return new Numbers(this.left * this.right);
     }
   }
+
+  evaluate(environment){
+    return new Numbers(this.left.evaluate(environment) * this.right.evaluate(environment));
+  }
 }

@@ -60,8 +60,11 @@ function runner() {
   );
 
   const environment = {x: new Numbers(3)};
-  const res = new Machine(expression8, environment).run();
-}
+  const res = expression6.evaluate(environment);
+  expression6.inspect();
+  console.log(res);
+  // const res = new Machine(expression8, environment).run();
 
+}
 
 runner();

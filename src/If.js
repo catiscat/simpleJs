@@ -39,4 +39,12 @@ module.exports = class If{
       }
     }
   }
+
+  evaluate(environment){
+    if(new Boolean(this.condition.evaluate(environment))){
+      return this.consequence.evaluate(environment);
+    }else{
+      return this.alternative.evaluate(environment);
+    }
+  }
 }

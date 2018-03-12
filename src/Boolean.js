@@ -14,4 +14,8 @@ module.exports = class Boolean{
   reducible(){
     return false;
   }
+
+  evaluate(environment){
+    return this.bool;
+  }
 }

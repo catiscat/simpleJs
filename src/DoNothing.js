@@ -11,4 +11,8 @@ module.exports = class DoNothing{
     return false;
   }
 
+  evalutate(environment){
+    return environment;
+  }
+
 }

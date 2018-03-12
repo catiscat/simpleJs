@@ -10,9 +10,13 @@ module.exports = class Numbers {
 	inspect() {
 		console.log(this.toString());
   }
-  
+
   reducible(){
     return false;
+  }
+
+  evaluate(environment){
+    return this.number;
   }
 
 }

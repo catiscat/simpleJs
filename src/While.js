@@ -13,7 +13,7 @@ module.exports = class While{
   }
 
   inspect(){
-    return this.toString();
+    console.log( this.toString() );
   }
 
   reducible(){
@@ -27,6 +27,14 @@ module.exports = class While{
         new Sequence(this.body, new While(this.condition, this.body)),
         new DoNothing()),
       environment
+    }
+  }
+
+  evaluate(environment){
+    if(new Boolean(this.condition.evaluate(environment))){
+      return this.body.evaluate(environment);
+    }else{
+      return environment;
     }
   }
 }

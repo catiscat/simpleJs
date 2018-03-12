@@ -28,4 +28,8 @@ module.exports = class LessThan {
     }
   }
 
+  evaluate(environment){
+    return new Boolean(this.left.evaluate(environment) < this.right.evaluate(environment));
+  }
+
 }

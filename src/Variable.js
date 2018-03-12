@@ -19,5 +19,8 @@ module.exports = class Variable{
     return environment[this.variableName];
   }
 
+  evaluate(environment){
+    return environment[this.variableName];
+  }
 
 }
