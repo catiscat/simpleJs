@@ -10,4 +10,5 @@ module.exports = class DoNothing{
   reducible(){
     return false;
   }
+
 }
